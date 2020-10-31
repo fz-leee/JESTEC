@@ -1,4 +1,5 @@
 <?php $ManuscriptTitle = 'ManuscriptTitle' ?>
+<?php $ManuscriptID = 'ManuscriptID' ?>
 <?php include('head.php'); ?>
 <?php include('navbar.php'); ?>
 
@@ -26,7 +27,7 @@
 				</div>
 				<div class="card mr-2" style="width: 50rem; height: 50rem">
 					<div class="card-body">
-						<h5 class="card-title"><?php echo $ManuscriptTitle ?></h5>
+						<h5 class="card-title">[<?php echo $ManuscriptID ?>] <?php echo $ManuscriptTitle ?></h5>
 						<span class="badge badge-primary mr-1 mb-2">Keywords</span><span class="badge badge-primary mr-1">Keywords</span>
 						<hr>
 						<p class="lead">Reviewer Comments</p>

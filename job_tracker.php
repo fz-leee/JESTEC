@@ -1,12 +1,8 @@
 <?php include('head.php'); ?>
-<?php include('navbar.php'); ?>
 
 <html>
 	<head>
 		<style>
-			body {
-				margin-top: 4rem;
-			}
 
 			#header {
 			  opacity: 0.9;
@@ -23,7 +19,7 @@
 		</style>
 	</head>
 	<body class="bg-dark">
-		<div class="countainer px-2">
+		<div class="countainer">
 			<div class="d-flex p-2 mb-2 bg-primary rounded text-light" id="header">
 		      <div class="col-sm-1">
 		        Manuscript Number
@@ -69,7 +65,5 @@
 		      </div>
 		    </div>
 		</div>
-
-		<script type="text/javascript">document.getElementById("navbar").style.top = "-100px";</script>
 	</body>
 </html>

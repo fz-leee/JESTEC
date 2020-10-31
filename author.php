@@ -234,7 +234,6 @@ svg {
               <div class="card-body">
                     <form>
                       <div class="form-group">
-                        <label for="authors">Author(s)</label>
                         <div class="form-row">
                           <div class="col-6">
                             <small class="form-text text-muted mb-1">Select a JESTEC User</small>

@@ -1,12 +1,8 @@
 <?php include('head.php'); ?>
-<?php include('navbar.php'); ?>
 
 <html>
 	<head>
 		<style>
-			body {
-				margin-top: 4rem;
-			}
 
 			a.list-group-item {
 				background-color: #868e96;
@@ -25,8 +21,6 @@
 		</style>
 	</head>
 	<body class="bg-dark">
-	  <div class="container">
-	  	<div class="px-2">
 		  	<ul class="list-group list-group-flush rounded">
 			  <a href="#" class="list-group-item active">All</a>
 			  <a href="#" class="list-group-item">Round 1</a>
@@ -34,9 +28,5 @@
 			  <a href="#" class="list-group-item">Round 3</a>
 			  <a href="#" class="list-group-item">Completed</a>
 			</ul>
-		</div>
-	  </div>	
-
-		<script type="text/javascript">document.getElementById("navbar").style.top = "-100px";</script>
 	</body>
 </html>
