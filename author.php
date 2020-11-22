@@ -14,10 +14,6 @@
   padding-right: 2rem;
 }
 
-h3 {
-  margin-top: 2rem;
-}
-
 .row {
   margin-bottom: .5rem;
 }
@@ -54,6 +50,11 @@ svg {
   opacity: 1; 
 }
 
+.chatbox {
+  position: fixed;
+  bottom: 0;
+  right: 2rem;
+}
 
 	</style>
 
@@ -119,7 +120,7 @@ svg {
         04/20/2020
       </div>
       <div class="col-sm-1">
-        <a class="text-light" href="#" data-toggle="tooltip" title="Message"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chat-dots-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <a class="text-light" href="#" data-toggle="collapse" data-target="#ChatBox" aria-expanded="false" aria-controls="ChatBox"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chat-dots-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   		  <path fill-rule="evenodd" d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
   		</svg></a>
   		<a class="text-light" href="#" data-toggle="tooltip" title="Info"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -209,7 +210,42 @@ svg {
     </iframe>
   </div>
 
+  <div class="collapse chatbox" id="ChatBox">
+    <div class="card" style="width: 25rem; height: 35rem">
+      <div class="card-header">
+        New Message
+        <button type="button" class="close" data-toggle="collapse" href="#ChatBox" role="button" aria-expanded="false" aria-controls="ChatBox">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="card-body">
+        <form>
+          <input class="form-control" id="addAuthorSelection" list="recipients" placeholder="Recipient(s)">
+          <datalist id="recipients">
+            <option value="Recipient1"></option>
+            <option value="Recipient2"></option>
+            <option value="Recipient3"></option>
+          </datalist>
+          <hr class="my-2">
+          <input class="form-control" id="addAuthorSelection" list="subjects" placeholder="Subject">
+          <datalist id="subjects">
+            <option value="Subject1"></option>
+            <option value="Subject2"></option>
+            <option value="Subject3"></option>
+          </datalist>
+          <textarea class="form-control my-2" id="exampleFormControlTextarea1" rows="12"></textarea>
+        </form>
+      </div>
+
+      <div class="card-footer">
+        <button type="submit" class="btn btn-block btn-primary">Send Message</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Modal -->
+<form>
   <div class="modal fade" id="submitManuscript" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
       <div class="modal-content">
@@ -219,6 +255,8 @@ svg {
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+      
+      
         <div class="modal-body">
           <div class="accordion" id="accordionExample">
             <div class="card">
@@ -232,7 +270,6 @@ svg {
 
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
               <div class="card-body">
-                    <form>
                       <div class="form-group">
                         <div class="form-row">
                           <div class="col-6">
@@ -280,7 +317,6 @@ svg {
                         <input class="form-control" type="text" placeholder="No author added" readonly>
                       </div>      
                       </div>
-                    </form>
               </div>
             </div>
 
@@ -294,7 +330,6 @@ svg {
               </div>
               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                 <div class="card-body">
-                  <form>
                       <div class="form-group">
                         <label for="manuscriptTitle" required>Manuscript Title</label>
                         <input type="text" class="form-control" id="manuscriptTitle" aria-describedby="emailHelp" placeholder="Enter manuscript title">
@@ -325,7 +360,6 @@ svg {
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
                         <label class="form-check-label" for="exampleCheck1">I agree to the JESTEC <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
                       </div>
-                    </form>
                 </div>
               </div>
             </div>
@@ -338,6 +372,8 @@ svg {
       </div>
     </div>
   </div>
+</form>
+  </div>
 
 </div> 
 
@@ -345,6 +381,7 @@ svg {
 $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip();
 });
+
 </script>
 	</body>
 </html>

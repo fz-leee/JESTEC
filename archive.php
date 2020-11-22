@@ -49,45 +49,48 @@
 					    </div>
 			    	</div>
 			    	<hr class="border-light">
+					
 					<div class="media">
 					  <div class="media-body">
-					    <h5 id="volume-1" class="mt-0"><a class="text-success" data-toggle="collapse" href="#volume1-items" role="button" aria-expanded="false" aria-controls="collapseExample">Volume 1, 2020</a></h5>
+					    <h5 id="volume-1" class="mt-0">
+					    	<a class="text-success" data-toggle="collapse" href="#volume1-items" role="button" aria-expanded="false" aria-controls="collapseExample">Volume 1, 2020</a>
+					    </h5>
 					    <div class="collapse" id="volume1-items">
 						    <div class="media media-border">
 						    	<div class="media-body">
-						    		<h5 class="mt-0 text-info">Manuscript Title</h5>
+						    		<a class="mt-0 text-info h5" href="/articlereader.php">Manuscript Title</a>
 						    		<p class="mb-0">Author1, Author2</p>
-						    		<p class="mb-0 text-info"><span class="badge badge-info mr-2">Cite This</span><em class="mr-2">23 Downloads</em><a href="#" class="text-info">Cited by 2</a></p>
+						    		<p class="mb-0 text-info">
+						    			<a class="badge badge-info mr-2">Cite This</a>
+						    			<em class="mr-2">23 Downloads</em>
+						    			<a href="#" class="text-info">Cited by 2</a>
+						    		</p>
 						    	</div>
 						    </div>
+						    
 						    <div class="media media-border">
 						    	<div class="media-body">
-						    		<h5 class="mt-0 text-info">Manuscript Title</h5>
+						    		<a class="mt-0 text-info h5" href="#">Manuscript Title</a>
 						    		<p class="mb-0">Author1, Author2</p>
-						    		<p class="mb-0 text-info"><span class="badge badge-info mr-2">Cite This</span><em class="mr-2">23 Downloads</em><a href="#" class="text-info">Cited by 2</a></p>
+						    		<p class="mb-0 text-info">
+						    			<a class="badge badge-info mr-2">Cite This</a>
+						    			<em class="mr-2">23 Downloads</em>
+						    			<a href="#" class="text-info">Cited by 2</a>
+						    		</p>
 						    	</div>
 						    </div>
+						    
 						    <div class="media media-border">
 						    	<div class="media-body">
-						    		<h5 class="mt-0 text-info">Manuscript Title</h5>
+						    		<a class="mt-0 text-info h5" href="#">Manuscript Title</a>
 						    		<p class="mb-0">Author1, Author2</p>
-						    		<p class="mb-0 text-info"><span class="badge badge-info mr-2">Cite This</span><em class="mr-2">23 Downloads</em><a href="#" class="text-info">Cited by 2</a></p>
+						    		<p class="mb-0 text-info">
+						    			<a class="badge badge-info mr-2">Cite This</a>
+						    			<em class="mr-2">23 Downloads</em>
+						    			<a href="#" class="text-info">Cited by 2</a>
+						    		</p>
 						    	</div>
 						    </div>
-						    <div class="media media-border">
-						    	<div class="media-body">
-						    		<h5 class="mt-0 text-info">Manuscript Title</h5>
-						    		<p class="mb-0">Author1, Author2</p>
-						    		<p class="mb-0 text-info"><span class="badge badge-info mr-2">Cite This</span><em class="mr-2">23 Downloads</em><a href="#" class="text-info">Cited by 2</a></p>
-						    	</div>
-						    </div>
-						    <div class="media media-border">
-						    	<div class="media-body">
-						    		<h5 class="mt-0 text-info">Manuscript Title</h5>
-						    		<p class="mb-0">Author1, Author2</p>
-						    		<p class="mb-0 text-info"><span class="badge badge-info mr-2">Cite This</span><em class="mr-2">23 Downloads</em><a href="#" class="text-info">Cited by 2</a></p>
-						    	</div>
-						    </div>	
 						  </div>
 						</div>
 					</div>
@@ -121,7 +124,7 @@
 						    	<div class="media-body">
 						    		<h5 class="mt-0 text-info">Manuscript Title</h5>
 						    		<p class="mb-0">Author1, Author2</p>
-						    		<p class="mb-0 text-info"><span class="badge badge-info mr-2">Cite This</span><em class="mr-2">23 Downloads</em><a href="#" class="text-info">Cited by 2</a></p>
+						    		<p class="mb-0 text-info"><span class="btn badge badge-info mr-2">Cite This</span><em class="mr-2">23 Downloads</em><a href="#" class="text-info">Cited by 2</a></p>
 						    	</div>
 						    </div>
 						    <div class="media media-border">

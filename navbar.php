@@ -15,7 +15,7 @@
           <a class="nav-link" href="#">Submit Paper</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Archive</a>
+          <a class="nav-link" href="/archive.php">Archive</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Information</a>
