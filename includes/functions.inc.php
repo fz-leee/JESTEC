@@ -76,7 +76,7 @@ function uidExists($conn, $username) {
 
 // Insert new user into database
 function createUser($conn, $email, $username, $pwd) {
-  $sql = "INSERT INTO users (usersEmail, usersUid, usersPwd) VALUES (?, ?, ?);";
+  $sql = "INSERT INTO users (usersUid, usersEmail, usersPwd) VALUES (?, ?, ?);";
 
 	$stmt = mysqli_stmt_init($conn);
 	if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -167,8 +167,8 @@ function loginUser($conn, $username, $pwd) {
 		exit();
 	}
 }
-	function createManuscript($conn, $firstName, $lastName, $authorsEmail, $affiliation, $manuscriptTitle, $title, $abstract) {
-	  $sql = "INSERT INTO submitmanuscript (firstName, lastName, authorsEmail, affiliation, manuscriptTitle, title, abstract) VALUES (?, ?, ?, ?, ?, ?, ?);";
+	function createManuscript($conn, $firstName, $lastName, $authorsEmail, $affiliation, $manuscriptTitle, $title, $abstract, $keywords, $track) {
+	  $sql = "INSERT INTO submitmanuscript (firstName, lastName, authorsEmail, affiliation, manuscriptTitle, title, abstract, keywords, track) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
 		$stmt = mysqli_stmt_init($conn);
 		if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -177,7 +177,7 @@ function loginUser($conn, $username, $pwd) {
 		}
 
 
-		mysqli_stmt_bind_param($stmt, "sssssss", $firstName, $lastName, $authorsEmail, $affiliation, $manuscriptTitle, $title, $abstract);
+		mysqli_stmt_bind_param($stmt, "sssssssss", $firstName, $lastName, $authorsEmail, $affiliation, $manuscriptTitle, $title, $abstract, $keywords, $track);
 		mysqli_stmt_execute($stmt);
 		mysqli_stmt_close($stmt);
 		mysqli_close($conn);

@@ -10,6 +10,8 @@ if (isset($_POST["submit"])) {
   $manuscriptTitle = $_POST["manuscriptTitle"];
   $title = $_POST["title"];
   $abstract = $_POST["abstract"];
+  $keywords = $_POST["keywords"];
+  $track = $_POST["track"];
 
   require_once "dbh.inc.php";
   require_once 'functions.inc.php';
@@ -41,10 +43,10 @@ if (isset($_POST["submit"])) {
   $tname = $_FILES["file"]["tmp_name"];
 
 #upload directory path
-  $uploads_dir = '../images';
+  $uploads_dir = '../img';
 #TO move the uploaded file to specific location
   move_uploaded_file($tname, $uploads_dir.'/'.$pname);
   $sql = "INSERT INTO fileup (title,img) VALUES ('$fileName','$fileName')";
-  createManuscript($conn, $firstName, $lastName, $authorsEmail, $affiliation, $manuscriptTitle, $title, $abstract);
+  createManuscript($conn, $firstName, $lastName, $authorsEmail, $affiliation,  $title, $manuscriptTitle, $abstract, $keywords, $track);
 
     }

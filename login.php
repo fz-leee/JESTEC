@@ -135,12 +135,12 @@
               <h3 class="login-heading mb-4 text-">Welcome back!</h3>
               <form>
                 <div class="form-label-group">
-                  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                  <input type="email" id="inputEmail" name="uid" class="form-control" placeholder="Email address" required autofocus>
                   <label for="inputEmail">Email address</label>
                 </div>
 
                 <div class="form-label-group">
-                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                  <input type="password" id="inputPassword" name="pwd" class="form-control" placeholder="Password" required>
                   <label for="inputPassword">Password</label>
                 </div>
 

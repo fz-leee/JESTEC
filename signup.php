@@ -132,22 +132,22 @@
           <div class="row">
             <div class="col-md-9 col-lg-8 mx-auto text-light">
               <h3 class="login-heading mb-4">First time?</h3>
-              <form>
+              <form action="../includes/signup.inc.php" method="post">
                 <div class="form-label-group">
-                  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                  <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
                   <label for="inputEmail">Email address</label>
                 </div>
                 <div class="form-label-group">
-                  <input type="username" id="inputUsername" class="form-control" placeholder="Username" required>
+                  <input type="username" id="inputUsername" name="uid" class="form-control" placeholder="Username" required>
                   <label for="inputEmail">Username</label>
                 </div>
                 <hr>
                 <div class="form-label-group">
-                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                  <input type="password" id="inputPassword" name="pwd" class="form-control" placeholder="Password" required>
                   <label for="inputPassword">Password</label>
                 </div>
                 <div class="form-label-group">
-                  <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm Password" required>
+                  <input type="password" id="confirmPassword" name="pwdrepeat" class="form-control" placeholder="Confirm Password" required>
                   <label for="inputPassword">Confirm Password</label>
                 </div>
 

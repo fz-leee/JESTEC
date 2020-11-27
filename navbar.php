@@ -1,4 +1,4 @@
-<nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-primary shadow-lg fixed-top">
+<nav id="navbar" class="navbar navbar-expand-lg navbar-dark shadow-lg fixed-top" style="background-color: #2f5194">
   <div class="container">
     <a class="navbar-brand text-white" href="/">JESTEC</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">

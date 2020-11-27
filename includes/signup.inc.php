@@ -44,7 +44,7 @@ if (isset($_POST["submit"])) {
   // If we get to here, it means there are no user errors
 
   // Now we insert the user into the database
-  createUser($conn, $email, $username, $pwd);
+  createUser($conn, $username, $email, $pwd);
 
 } else {
 	header("location: ../signup.php");
