@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2020 at 04:10 AM
+-- Generation Time: Nov 28, 2020 at 05:43 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -49,18 +49,33 @@ CREATE TABLE `manuscripts` (
   `abstract` longtext NOT NULL,
   `keywords` varchar(64) NOT NULL,
   `track` set('Engineering','Science','Computing/IT') NOT NULL,
-  `manuscriptStatus` set('Submitted','Accepted','Declined','RevisionRequired') NOT NULL,
-  `dateSubmitted` date NOT NULL DEFAULT current_timestamp()
+  `manuscriptStatus` set('Submitted','Accepted','Rejected','RevisionRequired') NOT NULL DEFAULT 'Submitted',
+  `dateSubmitted` date NOT NULL DEFAULT current_timestamp(),
+  `assignedEditor` set('Editor1','Editor2','Editor3') NOT NULL,
+  `assignedReviewer` set('Reviewer1','Reviewer2') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `manuscripts`
 --
 
-INSERT INTO `manuscripts` (`idManuscript`, `firstName`, `lastName`, `authorsEmail`, `affiliation`, `title`, `manuscriptTitle`, `abstract`, `keywords`, `track`, `manuscriptStatus`, `dateSubmitted`) VALUES
-(8, 'Fauzi', 'Lee', '', 'Taylors University', 'Mr.', 'Bootstrap 101', 'abstract', 'keywords', 'Computing/IT', 'Submitted', '2020-11-27'),
-(9, 'Yazid', 'Zaini', '', 'Taylors University', 'Mr.', 'Intro to JQuery', 'abstract', 'keywords', 'Computing/IT', 'Submitted', '2020-11-27'),
-(10, 'Jacky', 'Yap', '', 'Taylors University', 'Mr.', 'MySQL for Dummies', 'abstract', 'keywords', 'Computing/IT', 'Submitted', '2020-11-27');
+INSERT INTO `manuscripts` (`idManuscript`, `firstName`, `lastName`, `authorsEmail`, `affiliation`, `title`, `manuscriptTitle`, `abstract`, `keywords`, `track`, `manuscriptStatus`, `dateSubmitted`, `assignedEditor`, `assignedReviewer`) VALUES
+(9, 'Yazid', 'Zaini', '', 'Taylors University', 'Mr.', 'Intro to JQuery', 'abstract', 'keywords', 'Computing/IT', 'Rejected', '2020-11-27', '', ''),
+(10, 'Jacky', 'Yap', '', 'Taylors University', 'Mr.', 'MySQL for Dummies', 'abstract', 'keywords', 'Computing/IT', 'RevisionRequired', '2020-11-27', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `messages`
+--
+
+CREATE TABLE `messages` (
+  `idMessage` int(11) NOT NULL,
+  `sender` varchar(64) DEFAULT NULL,
+  `recipient` varchar(64) NOT NULL,
+  `subject` varchar(64) NOT NULL,
+  `message` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -88,6 +103,12 @@ ALTER TABLE `manuscripts`
   ADD PRIMARY KEY (`idManuscript`);
 
 --
+-- Indexes for table `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`idMessage`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -101,7 +122,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `manuscripts`
 --
 ALTER TABLE `manuscripts`
-  MODIFY `idManuscript` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idManuscript` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT for table `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `idMessage` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
