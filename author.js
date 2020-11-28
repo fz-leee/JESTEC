@@ -4,10 +4,6 @@ $(document).ready(function(){
   // Get Submission Values
   var manid = 101;
 
-  // Add Submission
-  $("#SubmitBtn").click(function() {
-    $("#ManuscriptList").prepend();
-  });
 
   // Display Submissions
   // var submissionCount = 3;
@@ -17,4 +13,6 @@ $(document).ready(function(){
   //     submissionNewCount: submissionCount
   //   });
   // });
+
+  $()
 });

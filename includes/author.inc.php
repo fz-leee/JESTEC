@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST["submit"])) {
+if (isset($_POST["submitManuscript"])) {
 
   // First we get the form data from the URL
 

@@ -7,6 +7,7 @@
 
 <html>
 	<head>
+    <!-- Bootstrap Select -->
 <script src="author.js">
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
@@ -18,6 +19,10 @@ $(function () {
   padding-bottom: 2rem;
   padding-left: 2rem;
   padding-right: 2rem;
+}
+
+select {
+  margin-bottom: .5rem;
 }
 
 .row {
@@ -119,17 +124,19 @@ svg {
 
           if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
-              echo '<div class="row rounded text-light shadow-sm details ';
+              echo '<div id="';
+                echo $row['idManuscript'];
+              echo '" class="row rounded text-light shadow-sm details ';
               
               // Change status
               switch ($row['manuscriptStatus']) {
-                case Accepted:
+                case "Accepted":
                   echo "bg-success";
                   break;
-                case Rejected:
+                case "Rejected":
                   echo "bg-danger";
                   break;
-                case RevisionRequired:
+                case "RevisionRequired":
                   echo "bg-warning";
                   break;
                 default:
@@ -180,8 +187,10 @@ svg {
     </iframe>
   </div>
 
+  <!-- Message Box -->
+<form action="includes/chatbox.inc.php"  method="post" enctype="multipart/form-data">
   <div class="collapse chatbox" id="ChatBox">
-    <div class="card" style="width: 25rem; height: 35rem">
+    <div class="card" style="width: 25rem;">
       <div class="card-header">
         New Message
         <button type="button" class="close" data-toggle="collapse" href="#ChatBox" role="button" aria-expanded="false" aria-controls="ChatBox">
@@ -190,29 +199,39 @@ svg {
       </div>
 
       <div class="card-body">
-        <form>
-          <input class="form-control" id="addAuthorSelection" list="recipients" placeholder="Recipient(s)">
-          <datalist id="recipients">
-            <option value="Recipient1"></option>
-            <option value="Recipient2"></option>
-            <option value="Recipient3"></option>
-          </datalist>
-          <hr class="my-2">
-          <input class="form-control" id="addAuthorSelection" list="subjects" placeholder="Subject">
-          <datalist id="subjects">
-            <option value="Subject1"></option>
-            <option value="Subject2"></option>
-            <option value="Subject3"></option>
-          </datalist>
-          <textarea class="form-control my-2" id="exampleFormControlTextarea1" rows="12"></textarea>
-        </form>
+          <select name="cbManuscriptTitle" id="cbManuscriptTitle" class="form-control selectpicker">
+           <?php
+           foreach($result as $row)
+           {
+            echo '<option value="'.$row["manuscriptTitle"].'">'.$row["manuscriptTitle"].'</option>'; 
+           }
+           ?>
+          </select>
+          <select name="recipient" id="cbRecipient" class="form-control selectpicker">
+           <?php
+           foreach($result as $row)
+           {
+            echo '<option value="'.$row["Country"].'">'.$row["Country"].'</option>'; 
+           }
+           ?>
+          </select>
+          <select name="subject" id="cbSubject" class="form-control selectpicker">
+           <?php
+           foreach($result as $row)
+           {
+            echo '<option value="'.$row["Country"].'">'.$row["Country"].'</option>'; 
+           }
+           ?>
+          </select>
+          <textarea name="message" class="form-control my-2" id="exampleFormControlTextarea1" rows="12"></textarea>
       </div>
 
       <div class="card-footer">
-        <button type="submit" class="btn btn-block btn-primary">Send Message</button>
+        <button type="submit" class="btn btn-block btn-primary" name="submitMessage">Send Message</button>
       </div>
     </div>
   </div>
+</form>
 
   <!-- Modal -->
 <form action="includes/author.inc.php"  method="post" enctype="multipart/form-data">
@@ -337,7 +356,7 @@ svg {
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary" id="SubmitBtn" name="submit">Submit</button>
+          <button type="submit" class="btn btn-primary" id="SubmitBtn" name="submitManuscript">Submit</button>
         </div>
       </div>
     </div>
