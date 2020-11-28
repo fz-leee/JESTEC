@@ -7,8 +7,8 @@ if (isset($_POST["submit"])) {
   $lastName = $_POST["lastName"];
   $authorsEmail = $_POST["authorsEmail"];
   $affiliation = $_POST["affiliation"];
+  $title = $_POST["title"]; 
   $manuscriptTitle = $_POST["manuscriptTitle"];
-  $title = $_POST["title"];
   $abstract = $_POST["abstract"];
   $keywords = $_POST["keywords"];
   $track = $_POST["track"];
@@ -47,6 +47,6 @@ if (isset($_POST["submit"])) {
 #TO move the uploaded file to specific location
   move_uploaded_file($tname, $uploads_dir.'/'.$pname);
   $sql = "INSERT INTO fileup (title,img) VALUES ('$fileName','$fileName')";
-  createManuscript($conn, $firstName, $lastName, $authorsEmail, $affiliation,  $title, $manuscriptTitle, $abstract, $keywords, $track);
+  createManuscript($conn, $firstName, $lastName, $authorsEmail, $affiliation, $title, $manuscriptTitle, $abstract, $keywords, $track);
 
     }

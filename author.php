@@ -123,14 +123,14 @@ svg {
               
               // Change status
               switch ($row['manuscriptStatus']) {
-               case Accepted:
+                case Accepted:
                   echo "bg-success";
                   break;
-                case Declined:
+                case Rejected:
                   echo "bg-danger";
                   break;
                 case RevisionRequired:
-                  echo "bg-info";
+                  echo "bg-warning";
                   break;
                 default:
                   echo "bg-primary";
@@ -176,7 +176,7 @@ svg {
   </div>
     
   <div>
-    <iframe class="rounded" src="/job_tracker.php" style="width: 18rem; height: 21rem" frameBorder="0">
+    <iframe class="rounded" src="" style="width: 18rem;" frameBorder="0">
     </iframe>
   </div>
 
@@ -215,7 +215,7 @@ svg {
   </div>
 
   <!-- Modal -->
-<form method="post" action="includes/author.inc.php">
+<form action="includes/author.inc.php"  method="post" enctype="multipart/form-data">
   <div class="modal fade" id="submitManuscript" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
       <div class="modal-content">
@@ -313,9 +313,9 @@ svg {
                         <label for="manuscriptTitle" required>Track</label>
                         <select class="custom-select" id="track" name="track">
                           <option selected>Select track</option>
-                          <option value="1">Computer Science</option>
+                          <option value="1">Science</option>
                           <option value="2">Engineering</option>
-                          <option value="3">Data Science</option>
+                          <option value="3">Computing/IT</option>
                         </select>   
                       </div>
                       <div class="form-group">

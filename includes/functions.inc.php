@@ -167,8 +167,8 @@ function loginUser($conn, $username, $pwd) {
 		exit();
 	}
 }
-	function createManuscript($conn, $firstName, $lastName, $authorsEmail, $affiliation, $manuscriptTitle, $title, $abstract, $keywords, $track) {
-	  $sql = "INSERT INTO submitmanuscript (firstName, lastName, authorsEmail, affiliation, manuscriptTitle, title, abstract, keywords, track) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+	function createManuscript($conn, $firstName, $lastName, $authorsEmail, $affiliation, $title, $manuscriptTitle, $abstract, $keywords, $track) {
+	  $sql = "INSERT INTO manuscripts (firstName, lastName, authorsEmail, affiliation, title, manuscriptTitle, abstract, keywords, track) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
 		$stmt = mysqli_stmt_init($conn);
 		if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -177,9 +177,10 @@ function loginUser($conn, $username, $pwd) {
 		}
 
 
-		mysqli_stmt_bind_param($stmt, "sssssssss", $firstName, $lastName, $authorsEmail, $affiliation, $manuscriptTitle, $title, $abstract, $keywords, $track);
+		mysqli_stmt_bind_param($stmt, "sssssssss", $firstName, $lastName, $authorsEmail, $affiliation, $title, $manuscriptTitle, $abstract, $keywords, $track);
 		mysqli_stmt_execute($stmt);
 		mysqli_stmt_close($stmt);
 		mysqli_close($conn);
+		header("location: ../author.php");
 		exit();
 	}
