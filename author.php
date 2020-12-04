@@ -2,13 +2,12 @@
 <?php $AccessLevel = 'Author'; ?>
 <?php include('head.php'); ?>
 <?php include('navbar.php'); ?>
-<?php include('includes/dbh.inc.php'); ?>
 
 
 <html>
 	<head>
     <!-- Bootstrap Select -->
-<script src="author.js">
+<script src="js/author.js">
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
@@ -119,7 +118,7 @@ svg {
 
     <div id="ManuscriptList">  
       <?php 
-          $sql = "SELECT idManuscript, manuscriptTitle, dateSubmitted, manuscriptStatus FROM manuscripts";
+          $sql = "SELECT idManuscript, manuscriptTitle, dateSubmitted, manuscriptStatus, assignedEditor, assignedReviewer FROM manuscripts";
           $result = mysqli_query($conn, $sql);
 
           if (mysqli_num_rows($result) > 0) {
@@ -208,20 +207,12 @@ svg {
            ?>
           </select>
           <select name="recipient" id="cbRecipient" class="form-control selectpicker">
-           <?php
-           foreach($result as $row)
-           {
-            echo '<option value="'.$row["Country"].'">'.$row["Country"].'</option>'; 
-           }
-           ?>
+            
           </select>
           <select name="subject" id="cbSubject" class="form-control selectpicker">
-           <?php
-           foreach($result as $row)
-           {
-            echo '<option value="'.$row["Country"].'">'.$row["Country"].'</option>'; 
-           }
-           ?>
+           <option value="a"></option>
+           <option value="b"></option>
+           <option value="c"></option>
           </select>
           <textarea name="message" class="form-control my-2" id="exampleFormControlTextarea1" rows="12"></textarea>
       </div>

@@ -1,3 +1,5 @@
+<?php include('includes/dbh.inc.php'); ?>
+
 <!DOCTYPE html>
 <html>
   <head>

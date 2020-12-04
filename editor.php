@@ -1,12 +1,11 @@
 <?php $FirstName = 'Bob'; ?>
 <?php $AccessLevel = 'Editor'; ?>
-<?php $ManuscriptTitle = 'ManuscriptTitle' ?>
-<?php $ManuscriptID = 'ManuscriptID' ?>
 <?php include('head.php'); ?>
 <?php include('navbar.php'); ?>
 
 <html>
 	<head>
+		<script src="editor.js"></script>
 		<style>
 			body {
 			  padding-top: 6rem;
@@ -54,7 +53,7 @@
 		</style>
 	</head>
 
-	<body class='bg-dark'>
+<body class='bg-dark'>
 	<div class="container-fluid">
 		<div class="d-flex justify-content-between jumbotron text-center bg-header shadow">
 		  <a class="btn align-self-center" href="/reviewer.php">
@@ -83,76 +82,24 @@
 					<div class="row text-light align-items-end">
 						<div class="col-sm-1">Man. ID</div>
 						<div class="col-sm-3">Manuscript Title</div>
-						<div class="col-sm-2">Author(s)</div>
+						<div class="col-sm-1">Author(s)</div>
 						<div class="col-sm-1">Keyword(s)</div>
-						<div class="col-sm-1">Submitted</div>
+						<div class="col-sm-2">Submitted</div>
 						<div class="col-sm-2">Status</div>
 						<div class="col-sm-2">Progress</div>
 					</div>
-
-					<div class="row bg-primary text-light rounded details" id="Manuscript1" data-toggle="modal" data-target="#exampleModalCenter">
-						<div class="col-sm-1">001</div>
-						<div class="col-sm-3">Manuscript1</div>
-						<div class="col-sm-2">Author1</div>
-						<div class="col-sm-1">Keyword1</div>
-						<div class="col-sm-1">04/20/2020</div>
-						<div class="col-sm-2">Published</div>
-						<div class="col-sm-2 my-auto">
-							<div class="progress border border-light">
-							  <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-						</div>
-					</div>
-
-					<div class="row bg-primary text-light rounded details">
-						<div class="col-sm-1 my-auto">002</div>
-						<div class="col-sm-3 my-auto">Manuscript2</div>
-						<div class="col-sm-2 my-auto">Author2, Author3</div>
-						<div class="col-sm-1 my-auto">Keyword2</div>
-						<div class="col-sm-1 my-auto">04/20/2020</div>
-						<div class="col-sm-2 my-auto">Ready to Publish</div>
-						<div class="col-sm-2 my-auto">
-							<div class="progress border border-light">
-							  <div class="progress-bar bg-success" role="progressbar" style="width: 90%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-						</div>
-					</div>
-
-					<div class="row bg-primary text-light rounded details">
-						<div class="col-sm-1 my-auto">003</div>
-						<div class="col-sm-3 my-auto">Manuscript3</div>
-						<div class="col-sm-2 my-auto">Author4, Author5, Author6</div>
-						<div class="col-sm-1 my-auto">Keyword3, Keyword4</div>
-						<div class="col-sm-1 my-auto">04/20/2020</div>
-						<div class="col-sm-2 my-auto">In Revision</div>
-						<div class="col-sm-2 my-auto">
-							<div class="progress border border-light">
-							  <div class="progress-bar bg-success" role="progressbar" style="width: 60%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-						</div>
-					</div>
-
-					<div class="row bg-primary text-light rounded details">
-						<div class="col-sm-1 my-auto">004</div>
-						<div class="col-sm-3 my-auto">Manuscript4</div>
-						<div class="col-sm-2 my-auto">Author7</div>
-						<div class="col-sm-1 my-auto">Keyword5, Keyword6</div>
-						<div class="col-sm-1 my-auto">04/20/2020</div>
-						<div class="col-sm-2 my-auto">In Review</div>
-						<div class="col-sm-2 my-auto">
-							<div class="progress border border-light">
-							  <div class="progress-bar bg-success" role="progressbar" style="width: 40%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-						</div>
-					</div>
+				</div>
+	
+				<div id="ManuscriptList">
+				
 				</div>
 
 				<!-- Modal -->
-				<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+				<div class="modal fade" id="editorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 				  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 				    <div class="modal-content">
 				      <div class="modal-header">
-				        <h5 class="modal-title" id="exampleModalLongTitle">[<?php echo $ManuscriptID ?>] <?php echo $ManuscriptTitle ?></h5>
+				        <h5 class="modal-title" id="modalTitle"></h5>
 				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				          <span aria-hidden="true">&times;</span>
 				        </button>
@@ -273,9 +220,7 @@
          
 				      </div>
 				      <div class="modal-footer">
-				      	<button type="button" class="btn btn-secondary text-light mr-auto" data-dismiss="modal" data-toggle="collapse" data-target="#ChatBox" aria-expanded="false" aria-controls="ChatBox"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chat-dots-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-      </svg> Message</button>
+				      	<button type="button" class="btn btn-secondary text-light mr-auto" data-dismiss="modal" data-toggle="collapse" data-target="#ChatBox" aria-expanded="false" aria-controls="ChatBox"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chat-dots-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg> Message</button>
 				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 				        <button type="button" class="btn btn-primary">Save changes</button>
 				      </div>
@@ -324,5 +269,5 @@
 		    </div>
 		</div>
 	</div>
-	</body>
+</body>
 </html>
