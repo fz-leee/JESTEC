@@ -23,7 +23,7 @@
             <h1 class="font-weight-light text-info">Journal of Engineering, Science and Technology</h1>
             <p class="lead text-light">in partnership with Taylor's School of Computer Science and Engineering</p>
             <button class="btn btn-dark border-info text-info m-1">Submit Paper</button>
-            <button class="btn btn-dark text-info m-1">Learn More</button>
+            <button class="btn btn-dark text-info m-1">Browse Publications</button>
           </div>
         </div>
       </div>
