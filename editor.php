@@ -5,7 +5,7 @@
 
 <html>
 	<head>
-		<script src="editor.js"></script>
+		<script src="js/editor.js"></script>
 		<style>
 			body {
 			  padding-top: 6rem;
@@ -107,10 +107,10 @@
 				      <div class="modal-body">
 				      
 				      <div id="accordion">
-						  <div class="card">
+						  <div class="card" id="test" style="display: none;">
 						    <div class="card-header" id="headingOne">
 						      <h5 class="mb-0">
-						        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+						        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
 						          Assign an Editor to this manuscript
 						        </button>
 						      </h5>
@@ -119,7 +119,7 @@
 						    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
 						      <div class="card-body">
 						        <small class="form-text text-muted mb-1">Select a JESTEC Editor</small>
-	                            <input class="form-control mb-1" id="addEditorSelection" list="editors" placeholder="Enter user ID">
+	                            <input class="form-control mb-1" id="assignedEditor" list="editors" placeholder="Enter user ID">
 	                            <datalist id="editors">
 	                              <option value="Editor1"></option>
 	                              <option value="Editor2"></option>
@@ -141,7 +141,7 @@
 						        <div class="form-row">
 		                          <div class="col-6">
 		                            <small class="form-text text-muted mb-1">Select a JESTEC Reviewer</small>
-		                            <input class="form-control mb-1" id="addReviewerSelection" list="reviewers" placeholder="Enter user ID">
+		                            <input class="form-control mb-1" id="assignedReviewers" list="reviewers" placeholder="Enter user ID">
 		                            <datalist id="reviewers">
 		                              <option value="Reviewer1"></option>
 		                              <option value="Reviewer2"></option>
@@ -269,5 +269,11 @@
 		    </div>
 		</div>
 	</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	// $("#test").show()
+})
+</script>
 </body>
 </html>

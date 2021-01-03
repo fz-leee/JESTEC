@@ -18,7 +18,42 @@ if (mysqli_num_rows($result) > 0) {
       echo '<div class="col-sm-2">' . $row['manuscriptStatus'] . '</div>';
       echo '<div class="col-sm-2 my-auto">';
         echo '<div class="progress border border-light">';
-          echo '<div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>'; // note: make progress function
+          echo '<div class="progress-bar bg-success" role="progressbar" style="width:';
+            switch($row['manuscriptStatus']) {
+              case 'AssignEditor':
+                echo '10';
+                break;
+              case 'AssignReviewer':
+                echo '20';
+                break;
+              case 'PendingReviewerReq':
+                echo '30';
+                break;
+              case 'InReview':
+                echo '40';
+                break;
+              case 'RevisionNeeded':
+                echo '50';
+                break;
+              case 'InRevision':
+                echo '60';
+                break;
+              case 'AwaitingRevision':
+                echo '70';
+                break;
+              case 'AwaitingDecision':
+                echo '80';
+                break;
+              case 'ToPublish':
+                echo '90';
+                break;
+              case 'Published':
+                echo '100';
+                break;
+              default:
+                echo '0';
+            }
+          echo '%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>'; // note: make progress function
         echo '</div>';
       echo '</div>';
     echo '</div>';
